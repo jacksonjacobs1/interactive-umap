@@ -4,9 +4,15 @@ import pandas as pd
 import h5py
 from dash_canvas.utils import array_to_data_url
 import numpy as np
+import argparse
 
-data_path = '/home/jackson/Documents/programming/dp/h5_files/no_manual_annotations_copy.h5'
-plot_title = 'imagenet feature embedding'
+parser = argparse.ArgumentParser()
+parser.add_argument('--data_path', type=str)
+parser.add_argument('--plot_title', type=str)
+args = parser.parse_args()
+
+data_path = args.data_path
+plot_title = args.plot_title
 
 with h5py.File(data_path, 'r') as f:
 
